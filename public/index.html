@@ -32,86 +32,131 @@ class: center, middle
 
 ---
 
-# Agenda
+# About me
 
-1. Introduction
-2. Swagger
-3. Notebooks
-4. Demo
+ * API writer
+ * Developer
+ * German
+ * Jack-of-all-trades
+ * **Unicorn**
+ * working for IBM / Cloudant / CDS
+
+@KimStebel [www.kimstebel.com](https://www.kimstebel.com/)
 
 ---
 
-# Interactive documentation
+# Ask questions! Complain!
 
- * What? Let users try out services while browsing the documentation site
- * Why?
-   * Discover, **Try**, and buy
-   * Learning by doing
-   * Already works well in terms of conversion rate
-   * Because we can 
+---
+
+# Agenda
+
+1. What and why?
+2. Swagger
+3. Notebooks
+
+---
+
+# What is interactive documentation?
+
+User can try the API on the documentation site.
+ 
+---
+ 
+# Why interactive documentation?
+
+Code snippets actually work!
+
+---
+ 
+# Why interactive documentation?
+
+Seems to make developers more likely to contribute code snippets
+
+---
+ 
+# Why interactive documentation?
+
+Learning by doing
+
+---
+ 
+# Why interactive documentation?
+
+Get from "Hey, this seems interesting" to "it works!" in 10 seconds
+
+---
+ 
+# Why interactive documentation?
+
+Drive adoption
    
-![books](books.jpg)
-
 ---
 
 # Swagger
 
-![swagger](swagger-diagram.png)
+ * Yes, great for reference documentation of REST APIs
+
+But...
+
+ * Not all APIs are RESTful (nor should they be)
+ * Client libraries?
+ * No meant for guides
 
 ---
 
-# Swagger - Pros and cons
+#  Jupyter Notebooks (ipython notebooks)
 
-## Pros
-
- * Lets users try requests from the browser
- * Automatically creates API reference from Swagger spec file
- * Encourages collaboration between software developers and information developers
-
-## Cons
-
- * Only works with REST APIs, but less than half of CDS services have one
- * One request at a time, one service at a time
- * Issues with accessibility and translation
- 
----
-
-# Notebooks
-
-The [Jupyter Notebook](https://jupyter.org/) is an open source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
+The [Jupyter Notebook](https://jupyter.org/) is an open source web application that allows you to create and share documents that contain live code, equations, visualizations.
 
  * Supports over 40 programming languages
- * Code can produce rich output such as images, videos, LaTeX, and JavaScript
- * Supports Spark, from Python, R and Scala
+ * Code can produce output such as images, videos, LaTeX, and JavaScript
 
 ---
 
-# Notebooks
+# Jupyter notebooks
 
-![tmpnb screenshot](screenshot.png)
+![jupyter screenshot](screenshot.png)
 
 ---
 
-# Notebooks - but...
+# Jupyter Notebooks - but...
 
- * Notebooks are single user. Each user needs their own notebook server instance, usually run locally or behind a login (e.g. spark service, coursera).
- * How do we use notebooks in documentation/tutorials/demos? Requirements: No installation, no login (still in "discover, try and buy")
+ * Developed with academia and education in mind
+ * Notebook servers are single user. Each user needs their own notebook server instance
+ * Thus, usually run locally or behind a login (e.g. Coursera).
+ * How do we use notebooks in documentation? Requirements: No installation, no login
+
+---
+
+# Jupyter Notebooks - so what?
+
+ * It has an API - let's throw away the frontend and use the backend only
+ * tmpnb (temporary notebook server) solves the multiuser problem
 
 ---
 
 # tmpnb - Temporary Notebook Server
 
- * [tmpnb](https://github.com/jupyter/tmpnb) launches a docker container for each user that requests one.
+ * [tmpnb](https://github.com/jupyter/tmpnb) manages a pool of docker containers and assigns one to each user
  * used to provide temporary notebooks
  * used at user groups, meetups, and workshops to provide temporary access to a full system without any installation
  * runs https://try.jupyter.org/.
- * we can run it on Bluemix...
 
 ---
 
 # tmpnb - Temporary Notebook Server
 
 ![tmpnb architecture](tmpnb.png)
+
+---
+
+# tmpnb - based on Docker
+
+ * Docker! Yay!
+ * You can create your own Docker image for the Jupyter container
+ * Base images available from Jupyter
+ * You can add language kernels, libraries, data sets...
 
 ---
 
@@ -128,7 +173,7 @@ $(function(){
     new Thebe({
         selector: "code.python",
         kernel_name: "python2",
-        url:"http://some.tmpnb.server.com:8000"
+        url: "http://some.tmpnb.server.com:8000"
     });
 });
 ```
@@ -141,10 +186,6 @@ Any `<code class="python">` tag will have a run button added.
     ...
 </code>
 ```
-
----
-
-# Demo
 
 ---
 
