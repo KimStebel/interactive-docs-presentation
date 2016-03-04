@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Documentation</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { background-color: transparent; font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      img {
+        width: 100%;
+      }
+      img[alt="books"] {
+        position: relative;
+        
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Interactive Documentation
+
+---
+
+# Agenda
+
+1. Introduction
+2. Swagger
+3. Notebooks
+4. Demo
+
+---
+
+# Interactive documentation
+
+ * What? Let users try out services while browsing the documentation site
+ * Why?
+   * Discover, **Try**, and buy
+   * Learning by doing
+   * Already works well in terms of conversion rate
+   * Because we can 
+   
+![books](books.jpg)
+
+---
+
+# Swagger
+
+![swagger](swagger-diagram.png)
+
+---
+
+# Swagger - Pros and cons
+
+## Pros
+
+ * Lets users try requests from the browser
+ * Automatically creates API reference from Swagger spec file
+ * Encourages collaboration between software developers and information developers
+
+## Cons
+
+ * Only works with REST APIs, but less than half of CDS services have one
+ * One request at a time, one service at a time
+ * Issues with accessibility and translation
+ 
+---
+
+# Notebooks
+
+The [Jupyter Notebook](https://jupyter.org/) is an open source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
+
+ * Supports over 40 programming languages
+ * Code can produce rich output such as images, videos, LaTeX, and JavaScript
+ * Supports Spark, from Python, R and Scala
+
+---
+
+# Notebooks
+
+![tmpnb screenshot](screenshot.png)
+
+---
+
+# Notebooks - but...
+
+ * Notebooks are single user. Each user needs their own notebook server instance, usually run locally or behind a login (e.g. spark service, coursera).
+ * How do we use notebooks in documentation/tutorials/demos? Requirements: No installation, no login (still in "discover, try and buy")
+
+---
+
+# tmpnb - Temporary Notebook Server
+
+ * [tmpnb](https://github.com/jupyter/tmpnb) launches a docker container for each user that requests one.
+ * used to provide temporary notebooks
+ * used at user groups, meetups, and workshops to provide temporary access to a full system without any installation
+ * runs https://try.jupyter.org/.
+ * we can run it on Bluemix...
+
+---
+
+# tmpnb - Temporary Notebook Server
+
+![tmpnb architecture](tmpnb.png)
+
+---
+
+# Thebe - An alternative Notebook UI
+
+Tmpnb solves the multiuser problem, but it still has the same clunky UI.
+
+[Thebe](https://github.com/oreillymedia/thebe) is a Javascript library that uses tmpnb as a backend for code execution.
+
+It can be integrated into any website like this:
+
+```
+$(function(){
+    new Thebe({
+        selector: "code.python",
+        kernel_name: "python2",
+        url:"http://some.tmpnb.server.com:8000"
+    });
+});
+```
+
+Any `<code class="python">` tag will have a run button added.
+
+```
+<code class="python">
+    import cloudant
+    ...
+</code>
+```
+
+---
+
+# Demo
+
+---
+
+# Questions?
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

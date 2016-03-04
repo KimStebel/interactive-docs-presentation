@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Documentation</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      img {
+        width: 100%;
+      }
+      
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Interactive documentation
+
+---
+
+# Agenda
+
+1. Introduction
+
+2. Swagger
+  * Pros and Cons
+  * Workflow
+  * Resources needed
+
+3. Notebooks
+  * Introduction
+  * Notebooks for documentation
+  * Examples
+  * Workflow
+  * Resources needed
+  
+---
+
+# Interactive documentation
+
+ * What? Let users try out services while browsing the documentation site
+ * Why?
+   * Discover, **Try**, and buy
+   * Learning by doing
+   * Already works well in terms of conversion rate
+   * Because we can
+   
+---
+
+
+# Notebooks
+
+The [Jupyter Notebook](https://jupyter.org/) is an open source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
+
+ * Supports over 40 programming languages
+ * Can be used with (almost) all CDS services
+ * Can be used to connect services together
+ * Can be used for longer examples with more than one request
+ * Only viable option for services without a REST API
+
+---
+
+# Notebooks for documentation
+
+ * Integrate executable code snippets into documentation sites
+ * Temporary notebooks (with tmpnb and docker) as an execution engine
+ * Used at user groups, meetups, and workshops to provide temporary access to a full system without any installation, runs https://try.jupyter.org/.
+ * Works with Docker Swarm, making it easy to scale and keep available
+
+---
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

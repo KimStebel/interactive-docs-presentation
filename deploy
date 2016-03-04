@@ -1,0 +1,11 @@
+#!/bin/bash
+
+bucket='gs://interactive-docs-presentation/'
+
+# upload to google storage
+gsutil -m rm -r "$bucket"
+gsutil mb "$bucket"
+gsutil -m -h "Cache-Control:public, max-age=86400" cp -z html,css,js -r public/* "$bucket"
+gsutil -m acl set -r 'public-read' "$bucket"
+echo 'now go to https://storage.googleapis.com/interactive-docs-presentation/index.html'
+
